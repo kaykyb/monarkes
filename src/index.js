@@ -23,7 +23,7 @@ async function start() {
   stream.on("tweet", async function (tweet) {
     console.log("Recebeu tweet de " + tweet.user.id);
 
-    if (tweet.user.id !== MONARK_UID) return;
+    if (`${tweet.user.id}` !== `${MONARK_UID}`) return;
 
     console.log("Vai enviar.");
 
