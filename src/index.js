@@ -18,8 +18,14 @@ const T = new twit(config);
 async function start() {
   const stream = T.stream("statuses/filter", { follow: `${MONARK_UID}` });
 
+  console.log("Stream iniciado para " + MONARK_UID);
+
   stream.on("tweet", async function (tweet) {
+    console.log("Recebeu tweet de " + tweet.user.id);
+
     if (tweet.user.id !== MONARK_UID) return;
+
+    console.log("Vai enviar.");
 
     const txt = tweet.text;
     const monark = await monarkGenerator.generate(txt);
