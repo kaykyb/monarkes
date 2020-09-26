@@ -24,6 +24,7 @@ async function start() {
     console.log("Recebeu tweet de " + tweet.user.id);
 
     if (`${tweet.user.id}` !== `${MONARK_UID}`) return;
+    if (tweet.retweeted_status) return;
 
     console.log("Vai enviar.");
 
